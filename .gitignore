@@ -1,0 +1,94 @@
+# ============================================
+# E-HealthCare Management System - .gitignore
+# ============================================
+
+# --- Build output ---
+target/
+out/
+out-test/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# --- Packaging / deployment ---
+dist/
+dist-boot/
+runtime/
+runtime-boot/
+pkg/
+
+# ============================================
+# APPLICATION DATA (never commit these!)
+# ============================================
+*.dat
+*.db
+*.db-shm
+*.db-wal
+uploads/
+backups/
+logs/
+*.log
+fonts/
+keystore.p12
+keystore.pass
+acme-*.key
+
+# ============================================
+# IntelliJ IDEA
+# ============================================
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ============================================
+# Eclipse
+# ============================================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ============================================
+# NetBeans
+# ============================================
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# ============================================
+# VS Code
+# ============================================
+.vscode/
+
+# ============================================
+# OS artifacts
+# ============================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============================================
+# Kotlin
+# ============================================
+.kotlin
+
+# ============================================
+# Maven wrapper
+# ============================================
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# ============================================
+# Temporary files
+# ============================================
+*.tmp
+*.swp
+*~
+
+!deploy/
+!deploy/ehms-boot.jar

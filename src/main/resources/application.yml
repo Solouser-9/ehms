@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: ehms
+  servlet:
+    multipart:
+      max-file-size: 6MB
+      max-request-size: 7MB
+  flyway:
+    enabled: false
+    # url: jdbc:sqlite:ehms.db
+    baseline-on-migrate: true
+    # locations: classpath:db/migration/mysql
+  # threads:
+  #   virtual:
+  #     enabled: true
+
+server:
+  port: ${PORT:8000}
+  address: 0.0.0.0
+  shutdown: graceful
+  # ssl:
+  #   enabled: true
+  #   key-store: keystore.p12
+  #   key-store-password: <contents of keystore.pass>
+  #   key-store-type: PKCS12
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    ehms: INFO
+
+ehms:
+  db-url: ""
+  admin-key: ehms-admin-key
+  backups: 10
+  backup-interval-seconds: 60
+  audit-cap: 2000
+  strict-verification: false
+  prorate: false
+  trust-proxy: false
+  captcha-difficulty: 3
+  stripe-key: ""                # "" = unused; sk_test_.../sk_live_... enables Stripe
+  paystack-key: ""              # ← 🔑 PASTE YOUR sk_test_... KEY BETWEEN THE QUOTES (test keys only
+    #    in this file - use env vars for live keys). Takes precedence
+  #    over stripe-key when both are set.
+  stripe-currency: ngn          # default charge currency: Naira (kobo). Override per deployment.
+  public-url: ""                # e.g. https://ehms.example.com (gateway callback base)
